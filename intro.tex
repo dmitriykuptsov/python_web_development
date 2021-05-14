@@ -102,7 +102,7 @@ $ pip3 install flask_wtf
 \end{python}
 
 Далее нужно сконфигурировать наше Flask приложение для работы с CSRF
-защитой. Для этого вставим следие строки в наше приложение:
+защитой. Для этого вставим следующие строки в наше приложение:
 
 \begin{python}
 from flask_wtf.csrf import CSRFProtect
@@ -161,6 +161,14 @@ def handle_csrf_error(e):
 \begin{python}[ht]
 $ apg -x 32 -m 32 -a 1
 \end{python}
+
+\subsection{Конфигурация безопасности}
+
+Множество настроек существует для Flask приложения. Сюда входят как настройки общего характера,
+так и настройки относящиеся к безопасности вашего веб приложения. В данной главе мы рассмотрим
+настройки относящиеся к безопасности.
+
+https://flask.palletsprojects.com/en/2.0.x/config/
 
 %https://towardsdatascience.com/how-to-secure-your-machine-learning-app-with-csrf-protection-506c3383f9e5
 
