@@ -81,6 +81,23 @@ csrf = CSRFProtect(app)
 </script>
 \end{python}
 
+Когда проверка верности токен будет нейдачной Flask выбросит ошибку CSRFError, 
+По-умолчанию, Flask вернет HTTP с кодом 400 и объяснением причины ошибки. Если
+вы хотите отправить своё сообщение об ошибке то стоит зарегестрировать соответствующий
+обработчик ошибки:
+
+\begin{python}
+from flask_wtf.csrf import CSRFError
+
+@app.errorhandler(CSRFError)
+def handle_csrf_error(e):
+    return render_template('csrf_error.html', reason=e.description), 400
+\end{python}
+
+Стоит заметить CSRF защита требует секретный ключ для подписи токена. По-умолчанию Flask 
+будет использовать SECRET\_KEY переменную для этих целей. Если же вы захотите использовать
+отдельный ключ для этих целей, то можно установить переменную WTF\_CSRF\_SECRET\_KEY.
+
 \subsection{Аутентификация и авторизация}
 
 \subsection{Шифрование данных с SSL}
