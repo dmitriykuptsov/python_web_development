@@ -326,7 +326,7 @@ openssl dhparam -out /etc/security/dhparam.pem 2048
 \begin{python}
 server {
     listen 443 ssl;
-    server_name example.com;
+    server_name strangebit.io;
     ssl_certificate /etc/letsencrypt/live/strangebit.io/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/strangebit.io/privkey.pem;
     ssl_dhparam /etc/security/dhparam.pem;
